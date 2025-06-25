@@ -1,9 +1,37 @@
 'use client';
 import { useState } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
+import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 
 export default function Hero() {
   const [showContact, setShowContact] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('https://formspree.io/f/mblypkby', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(e.target as HTMLFormElement),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('❌ Failed to send message. Please try again later.');
+      }
+    } catch (err) {
+      alert('⚠️ An error occurred. Please try again.');
+    }
+  };
 
   return (
     <section className="animate-hero py-20 text-center relative bg-gradient-to-t from-[#C8E6C9] via-white to-[#FFE0B2] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -27,21 +55,14 @@ export default function Hero() {
           <a href="#skills" className="bg-[#10B981] text-white px-6 py-2 rounded hover:bg-emerald-700 transition">Skills</a>
           <a href="#projects" className="bg-[#F59E0B] text-white px-6 py-2 rounded hover:bg-amber-700 transition">Projects</a>
           <button onClick={() => setShowContact(true)} className="bg-[#EF4444] text-white px-6 py-2 rounded hover:bg-red-700 transition">Contact</button>
-          <a
-            href="#hobbies"
-            className="ml-8 px-3 py-1 border border-dashed border-purple-500 text-purple-600 hover:bg-purple-100 dark:hover:bg-gray-700 rounded transition"
-          >
+          <a href="#hobbies" className="ml-8 px-3 py-1 border border-dashed border-purple-500 text-purple-600 hover:bg-purple-100 dark:hover:bg-gray-700 rounded transition">
             🎯 Hobbies
           </a>
         </div>
 
-        {/* Email block */}
         <div className="absolute bottom-4 right-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
           <HiOutlineMail className="text-lg" />
-          <a
-            href="mailto:melon.01.plots@icloud.com"
-            className="underline hover:text-purple-500 transition"
-          >
+          <a href="mailto:melon.01.plots@icloud.com" className="underline hover:text-purple-500 transition">
             melon.01.plots@icloud.com
           </a>
         </div>
@@ -49,54 +70,71 @@ export default function Hero() {
 
       {/* Contact Modal */}
       {showContact && (
-        <div
-          className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center"
-          onClick={() => setShowContact(false)} // close modal on backdrop click
-        >
+        <div className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center" onClick={() => { setShowContact(false); setSubmitted(false); }}>
           <div
-            className="bg-white dark:bg-gray-900 p-6 rounded-lg max-w-md w-full shadow-xl relative"
-            onClick={(e) => e.stopPropagation()} // prevent close when clicking inside modal
+            className="bg-white dark:bg-gray-900 p-6 rounded-xl max-w-md w-full shadow-2xl relative animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
           >
-           
-            <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-            <form action="https://formspree.io/f/mwkggvgr" method="POST" className="flex flex-col gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
-                required
-              />
-              <input
-                type="email"
-                name="_replyto"
-                placeholder="Your Email"
-                className="p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows={5}
-                className="p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
-                required
-              />
-              <div className="flex justify-end gap-3 mt-4">
-  <button
-    type="submit"
-    className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition"
-  >
-    Send Message
-  </button>
-  <button
-    type="button"
-    onClick={() => setShowContact(false)}
-    className="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-6 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition"
-  >
-    Close
-  </button>
-</div>
-            </form>
+            <h2 className="text-2xl font-bold text-center mb-4 text-purple-700 dark:text-purple-400">Let's Connect 🤝</h2>
+
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="relative">
+                  <FaUser className="absolute left-3 top-3 text-purple-500" />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="pl-10 p-3 w-full rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-purple-400 outline-none"
+                  />
+                </div>
+                <div className="relative">
+                  <FaEnvelope className="absolute left-3 top-3 text-purple-500" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="pl-10 p-3 w-full rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-purple-400 outline-none"
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="p-3 w-full rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-purple-400 outline-none"
+                />
+                <div className="flex justify-between mt-4">
+                  <button type="submit" className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition flex items-center gap-2">
+                    <FaPaperPlane /> Send
+                  </button>
+                  <button type="button" onClick={() => setShowContact(false)} className="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-6 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition">
+                    Close
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <div className="text-center p-6">
+                <p className="text-green-600 font-bold text-lg">✅ Thank you! Message Sent Successfully.</p>
+                <button
+                  onClick={() => {
+                    setShowContact(false);
+                    setSubmitted(false);
+                  }}
+                  className="mt-6 bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition"
+                >
+                  Close
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -1,13 +1,12 @@
+// app/layout.tsx
+
 import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Vj.17 Portfolio',
   description: '🤝 Connecting People • 🧪 Testing Skills • 💡 Creating Solutions',
-  // 👇 Add your Google verification here
-  other: {
-    'google-site-verification': 'google9be9d164f93ee229.html',
-  },
+  // No need to add google-site-verification here anymore
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

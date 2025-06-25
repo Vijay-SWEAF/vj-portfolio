@@ -38,9 +38,9 @@ export default function Navbar() {
         {/* Language Switcher */}
         {[
           { flag: '🇬🇧', code: 'EN' },
-          { flag: '🇫🇷', code: 'FR' },
-          { flag: '🇪🇸', code: 'ES' },
-          { flag: '🇵🇹', code: 'PT' }
+         // { flag: '🇫🇷', code: 'FR' },
+// { flag: '🇪🇸', code: 'ES' },
+// { flag: '🇵🇹', code: 'PT' }
         ].map(({ flag, code }) => (
           <button
             key={code}

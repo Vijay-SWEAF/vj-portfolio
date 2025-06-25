@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vj-portfolio-seven.vercel.app
+
+# Sitemaps
+Sitemap: https://vj-portfolio-seven.vercel.app/sitemap.xml

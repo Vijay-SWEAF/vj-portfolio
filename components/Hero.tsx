@@ -76,9 +76,7 @@ export default function Hero() {
         </div>
 
         <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
-  <span className="flex items-center gap-1 font-medium text-gray-700 dark:text-gray-300">
-    🔗 LinkedIn Profile
-  </span>
+
   <div className="badge-base LI-profile-badge"
        data-locale="en_US"
        data-size="medium"
@@ -88,7 +86,7 @@ export default function Hero() {
        data-version="v1">
     <a className="badge-base__link LI-simple-link"
        href="https://in.linkedin.com/in/vk-01110110?trk=profile-badge">
-       Vj 💫
+      
     </a>
   </div>
 </div>

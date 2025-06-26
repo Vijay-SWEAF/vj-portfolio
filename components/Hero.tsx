@@ -1,7 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+
+// Declare global for gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 export default function Hero() {
   const [showContact, setShowContact] = useState(false);
@@ -14,7 +21,6 @@ export default function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const res = await fetch('https://formspree.io/f/mblypkby', {
         method: 'POST',
@@ -28,10 +34,19 @@ export default function Hero() {
       } else {
         alert('❌ Failed to send message. Please try again later.');
       }
-    } catch (err) {
+    } catch {
       alert('⚠️ An error occurred. Please try again.');
     }
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+    script.async = true;
+    script.defer = true;
+    script.type = 'text/javascript';
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <section className="animate-hero py-20 text-center relative bg-gradient-to-t from-[#C8E6C9] via-white to-[#FFE0B2] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -60,6 +75,24 @@ export default function Hero() {
           </a>
         </div>
 
+        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
+  <span className="flex items-center gap-1 font-medium text-gray-700 dark:text-gray-300">
+    🔗 LinkedIn Profile
+  </span>
+  <div className="badge-base LI-profile-badge"
+       data-locale="en_US"
+       data-size="medium"
+       data-theme="light"
+       data-type="HORIZONTAL"
+       data-vanity="vk-01110110"
+       data-version="v1">
+    <a className="badge-base__link LI-simple-link"
+       href="https://in.linkedin.com/in/vk-01110110?trk=profile-badge">
+       Vj 💫
+    </a>
+  </div>
+</div>
+
         <div className="absolute bottom-4 right-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
           <HiOutlineMail className="text-lg" />
           <a href="mailto:melon.01.plots@icloud.com" className="underline hover:text-purple-500 transition">
@@ -70,7 +103,7 @@ export default function Hero() {
 
       {/* Contact Modal */}
       {showContact && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center" onClick={() => { setShowContact(false); setSubmitted(false); }}>
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 py-10 overflow-y-auto min-h-screen" onClick={() => { setShowContact(false); setSubmitted(false); }}>
           <div
             className="bg-white dark:bg-gray-900 p-6 rounded-xl max-w-md w-full shadow-2xl relative animate-fade-in"
             onClick={(e) => e.stopPropagation()}
@@ -112,6 +145,19 @@ export default function Hero() {
                   required
                   className="p-3 w-full rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-purple-400 outline-none"
                 />
+
+                <div className="mt-1 text-left">
+                  <a
+                    href="https://paypal.me/sweaf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-800 transition"
+                  >
+                    <span className="text-yellow-500 text-lg">💛</span>
+                    <span className="underline">Optional: Support this initiative via PayPal.</span>
+                  </a>
+                </div>
+
                 <div className="flex justify-between mt-4">
                   <button type="submit" className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition flex items-center gap-2">
                     <FaPaperPlane /> Send
@@ -124,6 +170,29 @@ export default function Hero() {
             ) : (
               <div className="text-center p-6">
                 <p className="text-green-600 font-bold text-lg">✅ Thank you! Message Sent Successfully.</p>
+
+                <a
+                  href="https://paypal.me/sweaf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center justify-center gap-2 bg-yellow-400 text-white px-5 py-2 rounded hover:bg-yellow-500 transition animate-pulse"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.gtag) {
+                      window.gtag('event', 'paypal_click', {
+                        event_category: 'engagement',
+                        event_label: 'PayPal Support',
+                      });
+                    }
+                  }}
+                >
+                  <img src="/assets/pp258.png" alt="PayPal" className="w-6 h-6" />
+                  Support via PayPal
+                </a>
+
+                <p className="text-xs text-gray-500 mt-2">
+                  🇮🇳 Indian users: UPI QR support coming soon.
+                </p>
+
                 <button
                   onClick={() => {
                     setShowContact(false);

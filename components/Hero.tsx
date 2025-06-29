@@ -52,7 +52,7 @@ export default function Hero() {
     <section className="animate-hero py-20 text-center relative bg-gradient-to-t from-[#C8E6C9] via-white to-[#FFE0B2] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-3xl mx-auto px-4">
         <img
-          src="/assets/profile.jpg"
+          src="/assets/profile.png"
           alt="Vijay Kadam"
           className="mx-auto mb-6 w-32 h-32 rounded-full object-cover border-4 border-purple-600 shadow-lg"
         />

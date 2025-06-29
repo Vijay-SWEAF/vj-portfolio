@@ -2,8 +2,10 @@
 import { useState, useEffect } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
+import { BsPatchCheckFill } from 'react-icons/bs';
 
-// Declare global for gtag
+
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
@@ -44,7 +46,6 @@ export default function Hero() {
     script.src = 'https://platform.linkedin.com/badges/js/profile.js';
     script.async = true;
     script.defer = true;
-    script.type = 'text/javascript';
     document.body.appendChild(script);
   }, []);
 
@@ -75,22 +76,34 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
+        {/* LinkedIn Badge */}
+        <div className="absolute bottom-4 left-4 text-sm text-purple-700 dark:text-purple-300">
+          <div className="text-xs mb-1">🔗 LinkedIn</div>
+          <div
+            className="badge-base LI-profile-badge"
+            data-locale="en_US"
+            data-size="medium"
+            data-theme="light"
+            data-type="HORIZONTAL"
+            data-vanity="vk-01110110"
+            data-version="v1"
+          >
+           <a
+    href="https://in.linkedin.com/in/vk-01110110"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-white transition"
+  >
+    <FaLinkedin className="text-xl text-blue-600" />
+    <BsPatchCheckFill className="text-blue-500 text-xl" title="Verified Profile" />
+    <span className="underline font-medium">Vijay Kadam</span>
+    
+  </a>
+          </div>
 
-  <div className="badge-base LI-profile-badge"
-       data-locale="en_US"
-       data-size="medium"
-       data-theme="light"
-       data-type="HORIZONTAL"
-       data-vanity="vk-01110110"
-       data-version="v1">
-    <a className="badge-base__link LI-simple-link"
-       href="https://in.linkedin.com/in/vk-01110110?trk=profile-badge">
-      
-    </a>
-  </div>
-</div>
+        </div>
 
+        {/* Email */}
         <div className="absolute bottom-4 right-4 flex items-center gap-2 text-sm text-purple-700 dark:text-purple-300">
           <HiOutlineMail className="text-lg" />
           <a href="mailto:melon.01.plots@icloud.com" className="underline hover:text-purple-500 transition">

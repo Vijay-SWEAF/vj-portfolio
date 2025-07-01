@@ -7,10 +7,10 @@ import {
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
-  SiAdobeaftereffects, SiAdobeaudition, SiAdobedreamweaver, SiOpenai
+  SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango
 } from "react-icons/si";
 
-// Add descriptions here
+// Updated skills array
 const skills = [
   { name: 'Shipping Ops', icon: <FaShip className="text-indigo-500" />, level: 95, desc: 'Hands-on expertise in port operations, documentation, vessel handling, and logistics workflows.' },
   { name: 'Creative Thinking', icon: <FaLightbulb className="text-yellow-400" />, level: 95, desc: 'Ability to ideate fresh, innovative solutions under real-world constraints and business needs.' },
@@ -27,13 +27,14 @@ const skills = [
   { name: 'SQL / MySQL', icon: <FaDatabase className="text-blue-500" />, level: 80, desc: 'Efficient with joins, queries, and indexing for relational data management.' },
   { name: 'Photoshop', icon: <SiAdobephotoshop className="text-blue-400" />, level: 80, desc: 'Created social media graphics, logos, and content visuals.' },
   { name: 'Premiere Pro', icon: <SiAdobepremierepro className="text-purple-500" />, level: 80, desc: 'Video editing with transitions, subtitles, and export-ready formats.' },
-  { name: 'Adobe Express', icon: <SiAdobedreamweaver className="text-red-400" />, level: 80, desc: 'Designed content quickly using pre-built templates.' },
+  { name: 'Adobe Express', icon: <SiAdobexd className="text-red-400" />, level: 80, desc: 'Designed content quickly using pre-built templates for banners and reels.' },
   { name: 'App Development', icon: <FaMobileAlt className="text-purple-500" />, level: 80, desc: 'Built hybrid mobile apps using Bootstrap, Flutter and basic scripts.' },
   { name: 'Illustrator', icon: <SiAdobeillustrator className="text-orange-400" />, level: 75, desc: 'Created vector logos, illustrations, and icon sets.' },
   { name: 'Audition', icon: <SiAdobeaudition className="text-green-600" />, level: 75, desc: 'Audio cleanup for voiceovers, podcasts, and recordings professionally.' },
   { name: 'Node.js', icon: <FaNodeJs className="text-green-500" />, level: 70, desc: 'Built scripts using Node.js with Express and MongoDB basics.' },
   { name: 'After Effects', icon: <SiAdobeaftereffects className="text-blue-700" />, level: 70, desc: 'Animated graphics and text sequences for intros, logos, and motion visuals.' },
   { name: 'Python', icon: <FaPython className="text-yellow-500" />, level: 60, desc: 'Automation using Python for personal productivity tools.' },
+  { name: 'Django', icon: <SiDjango className="text-green-900" />, level: 60, desc: 'Developed full-stack web apps with Django, including admin, models, and views.' },
 ];
 
 export default function Skills() {

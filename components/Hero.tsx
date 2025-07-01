@@ -246,11 +246,29 @@ export default function Hero() {
 
       {!experienceSent ? (
         <form
-          action="https://formspree.io/f/mbllvkgd"
-          method="POST"
-          onSubmit={() => setExperienceSent(true)}
-          className="flex flex-col gap-4"
-        >
+  action="https://formspree.io/f/mpwrbedd" // <== use your new form ID
+  method="POST"
+  onSubmit={(e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          setExperienceSent(true);
+        } else {
+          alert('❌ Failed to submit request.');
+        }
+      })
+      .catch(() => alert('⚠️ Error submitting form.'));
+  }}
+  className="flex flex-col gap-4"
+>
           <input
             type="email"
             name="_replyto"

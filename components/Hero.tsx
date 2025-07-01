@@ -1,3 +1,4 @@
+
 'use client';
 import { useState, useEffect } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -16,6 +17,9 @@ export default function Hero() {
   const [showContact, setShowContact] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [showExperienceRequest, setShowExperienceRequest] = useState(false);
+  const [experienceFormData, setExperienceFormData] = useState({ email: '', reason: '' });
+  const [experienceSent, setExperienceSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -67,7 +71,12 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#experience" className="bg-[#4F46E5] text-white px-6 py-2 rounded hover:bg-indigo-700 transition">Experience</a>
+          <button
+            onClick={() => setShowExperienceRequest(true)}
+            className="bg-[#4F46E5] text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+          >
+            Experience
+          </button>
           <a href="#skills" className="bg-[#10B981] text-white px-6 py-2 rounded hover:bg-emerald-700 transition">Skills</a>
           <a href="#projects" className="bg-[#F59E0B] text-white px-6 py-2 rounded hover:bg-amber-700 transition">Projects</a>
           <button onClick={() => setShowContact(true)} className="bg-[#EF4444] text-white px-6 py-2 rounded hover:bg-red-700 transition">Contact</button>
@@ -88,19 +97,17 @@ export default function Hero() {
             data-vanity="vk-01110110"
             data-version="v1"
           >
-           <a
-    href="https://in.linkedin.com/in/vk-01110110"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-white transition"
-  >
-    <FaLinkedin className="text-xl text-blue-600" />
-    <BsPatchCheckFill className="text-blue-500 text-xl" title="Verified Profile" />
-    <span className="underline font-medium">Vijay Kadam</span>
-    
-  </a>
+            <a
+              href="https://in.linkedin.com/in/vk-01110110"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-white transition"
+            >
+              <FaLinkedin className="text-xl text-blue-600" />
+              <BsPatchCheckFill className="text-blue-500 text-xl" title="Verified Profile" />
+              <span className="underline font-medium">Vijay Kadam</span>
+            </a>
           </div>
-
         </div>
 
         {/* Email */}
@@ -218,6 +225,77 @@ export default function Hero() {
           </div>
         </div>
       )}
+  
+
+      {/* Experience Modal */}
+      {showExperienceRequest && (
+  <div
+    className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 py-10"
+    onClick={() => {
+      setShowExperienceRequest(false);
+      setExperienceSent(false);
+    }}
+  >
+    <div
+      className="bg-white dark:bg-gray-900 p-6 rounded-xl max-w-md w-full shadow-2xl relative animate-fade-in"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <h2 className="text-2xl font-bold text-center mb-4 text-indigo-700 dark:text-indigo-400">
+        Request Access to My Experience
+      </h2>
+
+      {!experienceSent ? (
+        <form
+          action="https://formspree.io/f/mbllvkgd"
+          method="POST"
+          onSubmit={() => setExperienceSent(true)}
+          className="flex flex-col gap-4"
+        >
+          <input
+            type="email"
+            name="_replyto"
+            required
+            placeholder="Your Email"
+            className="p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+          />
+          <textarea
+            name="message"
+            rows={4}
+            required
+            placeholder="Why would you like to view my experience?"
+            className="p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+          />
+          <div className="flex justify-between">
+            <button
+              type="submit"
+              className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+            >
+              Request Access
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowExperienceRequest(false)}
+              className="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-6 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div className="text-center p-6">
+          <p className="text-green-600 font-bold text-lg">✅ Request submitted successfully!</p>
+          <p className="text-sm mt-2 text-gray-500">You’ll hear from me soon if approved.</p>
+          <button
+            onClick={() => setShowExperienceRequest(false)}
+            className="mt-6 bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+          >
+            Close
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+)}
     </section>
   );
 }

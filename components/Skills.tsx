@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
-  SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango
+  SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango, 
 } from "react-icons/si";
 
 // Updated skills array

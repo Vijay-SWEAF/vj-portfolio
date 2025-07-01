@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
-import Experience from '../components/Experience';
+//import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import Hobbies from '../components/Hobbies';
 //import Contact from '../components/Contact';
@@ -26,7 +26,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Experience />
+      {/*<Experience />*/}
       <Projects />
       <Hobbies />
       {/*<Contact />*/}

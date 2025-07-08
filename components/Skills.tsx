@@ -1,16 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   FaPython, FaDatabase, FaReact, FaNodeJs, FaMicrosoft, FaShip, FaFigma,
   FaHtml5, FaCss3Alt, FaCode, FaChalkboardTeacher, FaLaptopCode,
-  FaPaintBrush, FaMobileAlt, FaLightbulb
+  FaPaintBrush, FaMobileAlt, FaLightbulb, FaSyncAlt
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
-  SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango, 
+  SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango,
 } from "react-icons/si";
 
-// Updated skills array
+// Skills list
 const skills = [
   { name: 'Shipping Ops', icon: <FaShip className="text-indigo-500" />, level: 95, desc: 'Hands-on expertise in port operations, documentation, vessel handling, and logistics workflows.' },
   { name: 'Creative Thinking', icon: <FaLightbulb className="text-yellow-400" />, level: 95, desc: 'Ability to ideate fresh, innovative solutions under real-world constraints and business needs.' },
@@ -40,10 +40,21 @@ const skills = [
 export default function Skills() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
+  useEffect(() => {
+    // Auto-flip demo
+    setFlippedIndex(0);
+    const timer = setTimeout(() => setFlippedIndex(null), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800 animate-fade">
       <div className="max-w-6xl mx-auto text-center px-4">
-        <h2 className="text-3xl font-bold mb-6">Skills</h2>
+        <h2 className="text-3xl font-bold mb-2">Skills</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 italic">
+          🔁 Click on a skill card to view details
+        </p>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-center">
           {skills.map((skill, idx) => (
             <div
@@ -62,6 +73,9 @@ export default function Skills() {
                   <span className="text-sm font-medium text-gray-800 dark:text-white text-center">
                     {skill.name}
                   </span>
+                  <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
+                    Click to flip
+                  </span>
                 </div>
 
                 {/* Back Side */}
@@ -73,6 +87,7 @@ export default function Skills() {
           ))}
         </div>
       </div>
+
       <style jsx>{`
         .perspective {
           perspective: 1000px;

@@ -3,49 +3,77 @@ import { useState, useEffect } from 'react';
 import {
   FaPython, FaDatabase, FaReact, FaNodeJs, FaMicrosoft, FaShip, FaFigma,
   FaHtml5, FaCss3Alt, FaCode, FaChalkboardTeacher, FaLaptopCode,
-  FaPaintBrush, FaMobileAlt, FaLightbulb, FaSyncAlt
+  FaPaintBrush, FaMobileAlt, FaLightbulb, FaFilm, FaCloud
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
   SiAdobeaftereffects, SiAdobeaudition, SiAdobexd, SiOpenai, SiDjango,
+  SiAmazon, SiGooglecloud
 } from "react-icons/si";
 
-// Skills list
-const skills = [
-  { name: 'Shipping Ops', icon: <FaShip className="text-indigo-500" />, level: 95, desc: 'Hands-on expertise in port operations, documentation, vessel handling, and logistics workflows.' },
-  { name: 'Creative Thinking', icon: <FaLightbulb className="text-yellow-400" />, level: 95, desc: 'Ability to ideate fresh, innovative solutions under real-world constraints and business needs.' },
-  { name: 'Excel VBA', icon: <FaMicrosoft className="text-green-700" />, level: 95, desc: 'Automated multiple reports and dashboards using VBA macros, formulas, pivot tables, and scripts.' },
-  { name: 'VB / C# / .NET', icon: <FaCode className="text-indigo-600" />, level: 90, desc: 'Built enterprise-level applications with WinForms, .NET APIs, and Windows-based utilities.' },
-  { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" />, level: 90, desc: 'Strong foundation in semantic HTML, responsive structures, and accessibility practices.' },
-  { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" />, level: 90, desc: 'Styled modern UI with Tailwind, Flexbox, and media queries for consistent layouts.' },
-  { name: 'Whiteboard Animation', icon: <FaChalkboardTeacher className="text-gray-600" />, level: 90, desc: 'Created story-driven educational videos using tools like Doodly and VideoScribe.' },
-  { name: 'Web Designing', icon: <FaLaptopCode className="text-blue-600" />, level: 90, desc: 'Crafted aesthetically pleasing, fully responsive modern UI using layers and shapes.' },
-  { name: 'UI/UX Design', icon: <FaFigma className="text-pink-500" />, level: 85, desc: 'Designed interactive prototypes and user journeys using Figma and Adobe XD.' },
-  { name: 'AI Tools Awareness', icon: <SiOpenai className="text-black" />, level: 85, desc: 'Comfortable using GPT, DALL·E, and other AI APIs to enhance workflows.' },
-  { name: 'Graphic Designing', icon: <FaPaintBrush className="text-pink-600" />, level: 85, desc: 'Generated sleek, aesthetic content using templates for posters, thumbnails, and banners.' },
-  { name: 'React / Next.js', icon: <FaReact className="text-cyan-500" />, level: 80, desc: 'Built frontend apps with React and server-rendered apps using Next.js for speed.' },
-  { name: 'SQL / MySQL', icon: <FaDatabase className="text-blue-500" />, level: 80, desc: 'Efficient with joins, queries, and indexing for relational data management.' },
-  { name: 'Photoshop', icon: <SiAdobephotoshop className="text-blue-400" />, level: 80, desc: 'Created social media graphics, logos, and content visuals.' },
-  { name: 'Premiere Pro', icon: <SiAdobepremierepro className="text-purple-500" />, level: 80, desc: 'Video editing with transitions, subtitles, and export-ready formats.' },
-  { name: 'Adobe Express', icon: <SiAdobexd className="text-red-400" />, level: 80, desc: 'Designed content quickly using pre-built templates for banners and reels.' },
-  { name: 'App Development', icon: <FaMobileAlt className="text-purple-500" />, level: 80, desc: 'Built hybrid mobile apps using Bootstrap, Flutter and basic scripts.' },
-  { name: 'Illustrator', icon: <SiAdobeillustrator className="text-orange-400" />, level: 75, desc: 'Created vector logos, illustrations, and icon sets.' },
-  { name: 'Audition', icon: <SiAdobeaudition className="text-green-600" />, level: 75, desc: 'Audio cleanup for voiceovers, podcasts, and recordings professionally.' },
-  { name: 'Node.js', icon: <FaNodeJs className="text-green-500" />, level: 70, desc: 'Built scripts using Node.js with Express and MongoDB basics.' },
-  { name: 'After Effects', icon: <SiAdobeaftereffects className="text-blue-700" />, level: 70, desc: 'Animated graphics and text sequences for intros, logos, and motion visuals.' },
-  { name: 'Python', icon: <FaPython className="text-yellow-500" />, level: 60, desc: 'Automation using Python for personal productivity tools.' },
-  { name: 'Django', icon: <SiDjango className="text-green-900" />, level: 60, desc: 'Developed full-stack web apps with Django, including admin, models, and views.' },
-];
+const skillCategories = {
+  General: [
+    { name: 'Shipping Ops', icon: <FaShip className="text-indigo-500" />, level: 95, desc: 'Hands-on expertise in port operations, documentation, vessel handling, and logistics workflows.' },
+    { name: 'Creative Thinking', icon: <FaLightbulb className="text-yellow-400" />, level: 95, desc: 'Ability to ideate innovative solutions under real-world constraints.' },
+    { name: 'Excel VBA', icon: <FaMicrosoft className="text-green-700" />, level: 95, desc: 'Automated dashboards using macros, formulas, and pivot tables.' },
+  { name: 'Presentation Skills', icon: <FaChalkboardTeacher className="text-red-500" />, level: 85, desc: 'Clear, confident delivery in meetings, workshops, and client demos with storytelling edge.' },
+  ],
+  Programming: [
+    { name: 'VB / C# / .NET', icon: <FaCode className="text-indigo-600" />, level: 90, desc: 'Built enterprise apps using WinForms and .NET APIs.' },
+    { name: 'Python', icon: <FaPython className="text-yellow-500" />, level: 60, desc: 'Automation with Python scripts for personal tools.' },
+    { name: 'Node.js', icon: <FaNodeJs className="text-green-500" />, level: 70, desc: 'Basic scripts with Express and MongoDB.' },
+    { name: 'Django', icon: <SiDjango className="text-green-900" />, level: 60, desc: 'Full-stack apps with Django admin, models, views.' },
+    { name: 'Machine Learning', icon: <FaCloud className="text-gray-500" />, level: 40, desc: (
+    <a
+      href="https://www.kaggle.com/vijayvj17"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 underline hover:text-blue-800"
+    >
+      Explore my Kaggle projects
+    </a>
+) },
+],
+  Frontend: [
+    { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" />, level: 90, desc: 'Semantic HTML and responsive design.' },
+    { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" />, level: 90, desc: 'Styled layouts with Tailwind, Flexbox, media queries.' },
+    { name: 'React / Next.js', icon: <FaReact className="text-cyan-500" />, level: 80, desc: 'Frontend + SSR apps with React and Next.js.' },
+    { name: 'App Development', icon: <FaMobileAlt className="text-purple-500" />, level: 80, desc: 'Hybrid mobile apps using Bootstrap & Flutter basics.' },
+  ],
+  Cloud: [
+    { name: 'Azure', icon: <FaMicrosoft className="text-blue-500" />, level: 55, desc: 'Managed Azure services for app hosting, storage, and identity.' },
+    { name: 'AWS', icon: <SiAmazon className="text-orange-600" />, level: 55, desc: 'Experience with EC2, S3, Lambda, and SES for personal apps.' },
+    { name: 'Google Cloud', icon: <SiGooglecloud className="text-blue-500" />, level: 55, desc: 'Used Firebase, Cloud Storage, and APIs in side projects.' },
+  ],
+  Creative: [
+    { name: 'Whiteboard Animation', icon: <FaChalkboardTeacher className="text-gray-600" />, level: 90, desc: 'Created educational videos using Doodly, VideoScribe.' },
+    { name: 'Web Designing', icon: <FaLaptopCode className="text-blue-600" />, level: 90, desc: 'Pixel-perfect UIs with responsive behavior.' },
+    { name: 'UI/UX Design', icon: <FaFigma className="text-pink-500" />, level: 85, desc: 'Prototypes & wireframes in Figma, Adobe XD.' },
+    { name: 'AI Tools Awareness', icon: <SiOpenai className="text-black" />, level: 85, desc: 'GPT, DALL·E and generative workflows in practice.' },
+    { name: 'Graphic Designing', icon: <FaPaintBrush className="text-pink-600" />, level: 85, desc: 'Social graphics using templates and creative tools.' },
+    { name: 'Photoshop', icon: <SiAdobephotoshop className="text-blue-400" />, level: 80, desc: 'Thumbnails, posters, and visual cleanups.' },
+    { name: 'Premiere Pro', icon: <SiAdobepremierepro className="text-purple-500" />, level: 80, desc: 'Cutting, transitions, titles for final video output.' },
+    { name: 'Adobe Express', icon: <SiAdobexd className="text-red-400" />, level: 80, desc: 'Quick visual designs using pre-built templates.' },
+    { name: 'Illustrator', icon: <SiAdobeillustrator className="text-orange-400" />, level: 75, desc: 'Vector logos and clean illustrations.' },
+    { name: 'Audition', icon: <SiAdobeaudition className="text-green-600" />, level: 75, desc: 'Voiceovers and audio cleanup for video content.' },
+    { name: 'After Effects', icon: <SiAdobeaftereffects className="text-blue-700" />, level: 70, desc: 'Motion design and logo animations.' },
+    { name: 'Adobe Animate', icon: <FaFilm className="text-pink-500" />, level: 70, desc: 'Created animated banners, interactive visuals, and frame-by-frame character motion using Adobe Animate.' }
+  ],
+  Database: [
+    { name: 'SQL / MySQL', icon: <FaDatabase className="text-blue-500" />, level: 80, desc: 'Complex joins, procedures, and relational schemas.' }
+  ]
+};
 
 export default function Skills() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    // Auto-flip demo
     setFlippedIndex(0);
-    const timer = setTimeout(() => setFlippedIndex(null), 3000);
+    const timer = setTimeout(() => setFlippedIndex(null), 2500);
     return () => clearTimeout(timer);
   }, []);
+
+  let skillIndex = 0;
 
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800 animate-fade">
@@ -55,37 +83,45 @@ export default function Skills() {
           🔁 Click on a skill card to view details
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-center">
-          {skills.map((skill, idx) => (
-            <div
-              key={idx}
-              onClick={() => setFlippedIndex(flippedIndex === idx ? null : idx)}
-              className="relative w-full h-40 cursor-pointer perspective"
-            >
-              <div className={`transition-transform duration-500 transform-style preserve-3d w-full h-full ${flippedIndex === idx ? 'rotate-y-180' : ''}`}>
-                {/* Front Side */}
-                <div className="absolute inset-0 bg-white dark:bg-gray-700 p-4 rounded shadow flex flex-col items-center justify-center backface-hidden">
+        {Object.entries(skillCategories).map(([category, skills]) => (
+          <div key={category} className="mb-10">
+            <h3 className="text-xl font-semibold text-left text-purple-700 dark:text-purple-300 mb-3">{category}</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-center">
+              {skills.map((skill) => {
+                const currentIndex = skillIndex++;
+                return (
                   <div
-                    className="absolute top-2 left-2 w-4 h-4 rounded-full"
-                    style={{ background: `conic-gradient(#83888d ${skill.level}%, #E5E7EB ${skill.level}% 100%)` }}
-                  ></div>
-                  <div className="text-3xl mb-2">{skill.icon}</div>
-                  <span className="text-sm font-medium text-gray-800 dark:text-white text-center">
-                    {skill.name}
-                  </span>
-                  <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
-                    Click to flip
-                  </span>
-                </div>
+                    key={currentIndex}
+                    onClick={() => setFlippedIndex(flippedIndex === currentIndex ? null : currentIndex)}
+                    className="relative w-full h-40 cursor-pointer perspective"
+                  >
+                    <div className={`transition-transform duration-500 transform-style preserve-3d w-full h-full ${flippedIndex === currentIndex ? 'rotate-y-180' : ''}`}>
+                      {/* Front */}
+                      <div className="absolute inset-0 bg-white dark:bg-gray-700 p-4 rounded shadow flex flex-col items-center justify-center backface-hidden">
+                        <div
+                          className="absolute top-2 left-2 w-4 h-4 rounded-full"
+                          style={{ background: `conic-gradient(#83888d ${skill.level}%, #E5E7EB ${skill.level}% 100%)` }}
+                        ></div>
+                        <div className="text-3xl mb-2">{skill.icon}</div>
+                        <span className="text-sm font-medium text-gray-800 dark:text-white text-center">
+                          {skill.name}
+                        </span>
+                        <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
+                          Click to flip
+                        </span>
+                      </div>
 
-                {/* Back Side */}
-                <div className="absolute inset-0 bg-purple-100 dark:bg-purple-800 p-4 rounded shadow flex items-center justify-center text-sm text-gray-900 dark:text-white text-center rotate-y-180 backface-hidden">
-                  {skill.desc}
-                </div>
-              </div>
+                      {/* Back */}
+                      <div className="absolute inset-0 bg-purple-100 dark:bg-purple-800 p-4 rounded shadow flex items-center justify-center text-sm text-gray-900 dark:text-white text-center rotate-y-180 backface-hidden">
+                        {skill.desc}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       <style jsx>{`

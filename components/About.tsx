@@ -3,7 +3,7 @@ export default function About() {
     <section id="about" className="py-20 px-4 max-w-7xl mx-auto text-left animate-fade">
       <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
       <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify">
-        My learning journey began in 1996 as a self-learner during my college days, fueled by a strong curiosity for systems, automation, and creative problem-solving. 
+        My self-learning journey began in the early years of the 21st century, fueled by a strong curiosity for systems, automation, and creative problem-solving. 
         What started as a hobby gradually aligned with my professional career in the shipping and logistics domain 🚢, where I gained hands-on experience across both domestic and multinational organizations. 
         Over time, I nurtured a deep passion for technology 🧠 — not only streamlining operational workflows and automating processes in my work environment, but also exploring web development, app creation, design, 
         and productivity tools through my personal interests.

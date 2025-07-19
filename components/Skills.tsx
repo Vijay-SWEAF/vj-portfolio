@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {
   FaPython, FaDatabase, FaReact, FaNodeJs, FaMicrosoft, FaShip, FaFigma,
   FaHtml5, FaCss3Alt, FaCode, FaChalkboardTeacher, FaLaptopCode,
-  FaPaintBrush, FaMobileAlt, FaLightbulb, FaFilm, FaCloud
+  FaPaintBrush, FaMobileAlt, FaLightbulb, FaFilm, FaCloud, FaCube
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
@@ -16,7 +16,7 @@ const skillCategories = {
     { name: 'Shipping Ops', icon: <FaShip className="text-indigo-500" />, level: 95, desc: 'Hands-on expertise in port operations, documentation, vessel handling, and logistics workflows.' },
     { name: 'Creative Thinking', icon: <FaLightbulb className="text-yellow-400" />, level: 95, desc: 'Ability to ideate innovative solutions under real-world constraints.' },
     { name: 'Excel VBA', icon: <FaMicrosoft className="text-green-700" />, level: 95, desc: 'Automated dashboards using macros, formulas, and pivot tables.' },
-  { name: 'Presentation Skills', icon: <FaChalkboardTeacher className="text-red-500" />, level: 85, desc: 'Clear, confident delivery in meetings, workshops, and client demos with storytelling edge.' },
+    { name: 'Presentation Skills', icon: <FaChalkboardTeacher className="text-red-500" />, level: 85, desc: 'Clear, confident delivery in meetings, workshops, and client demos with storytelling edge.' },
   ],
   Programming: [
     { name: 'VB / C# / .NET', icon: <FaCode className="text-indigo-600" />, level: 90, desc: 'Built enterprise apps using WinForms and .NET APIs.' },
@@ -24,16 +24,16 @@ const skillCategories = {
     { name: 'Node.js', icon: <FaNodeJs className="text-green-500" />, level: 70, desc: 'Basic scripts with Express and MongoDB.' },
     { name: 'Django', icon: <SiDjango className="text-green-900" />, level: 60, desc: 'Full-stack apps with Django admin, models, views.' },
     { name: 'Machine Learning', icon: <FaCloud className="text-gray-500" />, level: 40, desc: (
-    <a
-      href="https://www.kaggle.com/vijayvj17"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-600 underline hover:text-blue-800"
-    >
-      Explore my Kaggle projects
-    </a>
-) },
-],
+      <a
+        href="https://www.kaggle.com/vijayvj17"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        Explore my Kaggle projects
+      </a>
+    ) },
+  ],
   Frontend: [
     { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" />, level: 90, desc: 'Semantic HTML and responsive design.' },
     { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" />, level: 90, desc: 'Styled layouts with Tailwind, Flexbox, media queries.' },
@@ -48,16 +48,37 @@ const skillCategories = {
   Creative: [
     { name: 'Whiteboard Animation', icon: <FaChalkboardTeacher className="text-gray-600" />, level: 90, desc: 'Created educational videos using Doodly, VideoScribe.' },
     { name: 'Web Designing', icon: <FaLaptopCode className="text-blue-600" />, level: 90, desc: 'Pixel-perfect UIs with responsive behavior.' },
-    { name: 'UI/UX Design', icon: <FaFigma className="text-pink-500" />, level: 85, desc: 'Prototypes & wireframes in Figma, Adobe XD.' },
+    { name: 'UI/UX Design', icon: <SiAdobexd className="text-red-400" />, level: 85, desc: 'Prototypes & wireframes in Adobe XD.' },
     { name: 'AI Tools Awareness', icon: <SiOpenai className="text-black" />, level: 85, desc: 'GPT, DALL·E and generative workflows in practice.' },
     { name: 'Graphic Designing', icon: <FaPaintBrush className="text-pink-600" />, level: 85, desc: 'Social graphics using templates and creative tools.' },
     { name: 'Photoshop', icon: <SiAdobephotoshop className="text-blue-400" />, level: 80, desc: 'Thumbnails, posters, and visual cleanups.' },
     { name: 'Premiere Pro', icon: <SiAdobepremierepro className="text-purple-500" />, level: 80, desc: 'Cutting, transitions, titles for final video output.' },
-    { name: 'Adobe Express', icon: <SiAdobexd className="text-red-400" />, level: 80, desc: 'Quick visual designs using pre-built templates.' },
+    {
+  name: 'Adobe Express',
+  icon: (
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Adobe_Express_logo_CMYK_256px.svg"
+      alt="Adobe Express"
+      className="w-8 h-8"
+    />
+  ),
+  level: 80,
+  desc: 'Quick designs using Adobe Express templates and assets.'
+},
     { name: 'Illustrator', icon: <SiAdobeillustrator className="text-orange-400" />, level: 75, desc: 'Vector logos and clean illustrations.' },
     { name: 'Audition', icon: <SiAdobeaudition className="text-green-600" />, level: 75, desc: 'Voiceovers and audio cleanup for video content.' },
     { name: 'After Effects', icon: <SiAdobeaftereffects className="text-blue-700" />, level: 70, desc: 'Motion design and logo animations.' },
-    { name: 'Adobe Animate', icon: <FaFilm className="text-pink-500" />, level: 70, desc: 'Created animated banners, interactive visuals, and frame-by-frame character motion using Adobe Animate.' }
+    { name: 'Adobe Animate', icon: <FaFilm className="text-pink-500" />, level: 70, desc: 'Created animated banners, interactive visuals, and frame-by-frame character motion using Adobe Animate.' },
+    { name: 'Blender', icon: (
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg"
+      alt="Blender"
+      className="w-8 h-8"
+    />
+  ),
+  level: 40,
+  desc: 'Exploring 3D modeling, animations, and transitions using Blender for personal and creative projects.'
+},
   ],
   Database: [
     { name: 'SQL / MySQL', icon: <FaDatabase className="text-blue-500" />, level: 80, desc: 'Complex joins, procedures, and relational schemas.' }

@@ -130,9 +130,9 @@ export default function Skills() {
                         <span className="text-sm font-medium text-gray-800 dark:text-white text-center">
                           {skill.name}
                         </span>
-                        <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
+                        {/* <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
                           Hover to flip
-                        </span>
+                        </span> */}
                       </div>
 
                       {/* Back */}

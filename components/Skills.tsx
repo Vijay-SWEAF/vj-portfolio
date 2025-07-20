@@ -54,31 +54,33 @@ const skillCategories = {
     { name: 'Photoshop', icon: <SiAdobephotoshop className="text-blue-400" />, level: 80, desc: 'Thumbnails, posters, and visual cleanups.' },
     { name: 'Premiere Pro', icon: <SiAdobepremierepro className="text-purple-500" />, level: 80, desc: 'Cutting, transitions, titles for final video output.' },
     {
-  name: 'Adobe Express',
-  icon: (
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Adobe_Express_logo_CMYK_256px.svg"
-      alt="Adobe Express"
-      className="w-8 h-8"
-    />
-  ),
-  level: 80,
-  desc: 'Quick designs using Adobe Express templates and assets.'
-},
+      name: 'Adobe Express',
+      icon: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Adobe_Express_logo_CMYK_256px.svg"
+          alt="Adobe Express"
+          className="w-8 h-8"
+        />
+      ),
+      level: 80,
+      desc: 'Quick designs using Adobe Express templates and assets.'
+    },
     { name: 'Illustrator', icon: <SiAdobeillustrator className="text-orange-400" />, level: 75, desc: 'Vector logos and clean illustrations.' },
     { name: 'Audition', icon: <SiAdobeaudition className="text-green-600" />, level: 75, desc: 'Voiceovers and audio cleanup for video content.' },
     { name: 'After Effects', icon: <SiAdobeaftereffects className="text-blue-700" />, level: 70, desc: 'Motion design and logo animations.' },
     { name: 'Adobe Animate', icon: <FaFilm className="text-pink-500" />, level: 70, desc: 'Created animated banners, interactive visuals, and frame-by-frame character motion using Adobe Animate.' },
-    { name: 'Blender', icon: (
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg"
-      alt="Blender"
-      className="w-8 h-8"
-    />
-  ),
-  level: 40,
-  desc: 'Exploring 3D modeling, animations, and transitions using Blender for personal and creative projects.'
-},
+    {
+      name: 'Blender',
+      icon: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg"
+          alt="Blender"
+          className="w-8 h-8"
+        />
+      ),
+      level: 40,
+      desc: 'Exploring 3D modeling, animations, and transitions using Blender for personal and creative projects.'
+    },
   ],
   Database: [
     { name: 'SQL / MySQL', icon: <FaDatabase className="text-blue-500" />, level: 80, desc: 'Complex joins, procedures, and relational schemas.' }
@@ -101,7 +103,7 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto text-center px-4">
         <h2 className="text-3xl font-bold mb-2">Skills</h2>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 italic">
-          🔁 Click on a skill card to view details
+          🔁 Hover over a skill card to view details
         </p>
 
         {Object.entries(skillCategories).map(([category, skills]) => (
@@ -113,7 +115,8 @@ export default function Skills() {
                 return (
                   <div
                     key={currentIndex}
-                    onClick={() => setFlippedIndex(flippedIndex === currentIndex ? null : currentIndex)}
+                    onMouseEnter={() => setFlippedIndex(currentIndex)}
+                    onMouseLeave={() => setFlippedIndex(null)}
                     className="relative w-full h-40 cursor-pointer perspective"
                   >
                     <div className={`transition-transform duration-500 transform-style preserve-3d w-full h-full ${flippedIndex === currentIndex ? 'rotate-y-180' : ''}`}>
@@ -128,7 +131,7 @@ export default function Skills() {
                           {skill.name}
                         </span>
                         <span className="absolute bottom-2 text-xs text-gray-400 italic pointer-events-none">
-                          Click to flip
+                          Hover to flip
                         </span>
                       </div>
 

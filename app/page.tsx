@@ -7,6 +7,7 @@ import About from '../components/About';
 import Skills from '../components/Skills';
 //import Experience from '../components/Experience';
 import Projects from '../components/Projects';
+import Languages from '../components/Languages';
 import Hobbies from '../components/Hobbies';
 //import Contact from '../components/Contact';
 import ScrollToTop from '../components/ScrollToTop';
@@ -28,6 +29,7 @@ export default function Home() {
       <Skills />
       {/*<Experience />*/}
       <Projects />
+      <Languages />
       <Hobbies />
       {/*<Contact />*/}
 

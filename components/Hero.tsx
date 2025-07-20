@@ -80,9 +80,9 @@ export default function Hero() {
           <a href="#skills" className="bg-[#10B981] text-white px-6 py-2 rounded hover:bg-emerald-700 transition">Skills</a>
           <a href="#projects" className="bg-[#F59E0B] text-white px-6 py-2 rounded hover:bg-amber-700 transition">Projects</a>
           <button onClick={() => setShowContact(true)} className="bg-[#EF4444] text-white px-6 py-2 rounded hover:bg-red-700 transition">Contact</button>
-          <a href="#hobbies" className="ml-8 px-3 py-1 border border-dashed border-purple-500 text-purple-600 hover:bg-purple-100 dark:hover:bg-gray-700 rounded transition">
-            🎯 Hobbies
-          </a>
+          <a href="#languages" className="ml-8 px-3 py-1 border border-dashed border-purple-500 text-purple-600 hover:bg-purple-100 dark:hover:bg-gray-700 rounded transition">
+            Languages + Hobbies
+          </a>          
         </div>
 
         {/* LinkedIn Badge */}

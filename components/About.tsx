@@ -19,7 +19,7 @@ export default function About() {
         <br /><br />
         My creative toolkit includes hands-on experience with the <strong>Adobe suite 🎬</strong>: <strong>Photoshop 🖌️</strong>, 
         <strong>Illustrator ✒️</strong>, <strong>Audition 🎧</strong>, <strong>Premiere Pro 🎞️</strong>, <strong>After Effects ✨</strong>, 
-        <strong>Adobe Express 🚀</strong>, and <strong>whiteboard animation 🧑‍🏫</strong>. I also explore emerging <strong>AI tools 🤖</strong> 
+        <strong> Adobe Express 🚀, Blender 💡</strong>, and <strong>whiteboard animation 🧑‍🏫</strong>. I also explore emerging <strong>AI tools 🤖</strong> 
         to enhance visual content and productivity.
         <br /><br />
         In an era where many rely on AI to write code, I take pride in crafting software through my own <strong>logic, hands-on 

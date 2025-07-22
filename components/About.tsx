@@ -8,6 +8,14 @@ export default function About() {
         Over time, I nurtured a deep passion for technology 🧠 — not only streamlining operational workflows and automating processes in my work environment, but also exploring web development, app creation, design, 
         and productivity tools through my personal interests.
         <br /><br />
+        Academically, I earned a <strong>Graduate degree in Management & Accountancy</strong> from the <strong>University of Mumbai 🎓</strong>. 
+        Along the way, I pursued a <strong>Master Diploma in Systems & Softwares 💾</strong> from a private institute to deepen my understanding of computing fundamentals and programming.
+        <br /><br />
+        My learning never really stopped. I continued sharpening my creative and technical edge through certifications — including <strong>Adobe Applications 🎨</strong> via <strong>Udemy Alumni</strong>, 
+        and more recently through <strong>HarvardX (edX)</strong> where I'm progressing through the world-class <strong>CS50 series 💻</strong>: 
+        <em>Web Programming with Python and JavaScript</em>, <em>Introduction to Artificial Intelligence with Python</em>, and 
+        <em>Introduction to Computer Science</em>. Some of these are complete, while others are ongoing — because I'm always upgrading!
+        <br /><br />
         Today, I contribute within my organization’s <strong>Information Technology department 💼</strong>, leveraging this passion 
         to build tools that enhance operational clarity, efficiency, and accuracy. From creating <strong>internal dashboards 📊</strong> 
         to optimizing data workflows, I continuously bridge domain expertise with modern tools.
@@ -28,7 +36,7 @@ export default function About() {
         <br /><br />
         Some of my <strong>self-initiated prototypes 🛠️</strong> and internal experiments have evolved into real-world solutions, 
         delivering measurable value. Whether it’s building a <strong>logistics automation concept ⚙️</strong> or enhancing 
-        <strong>user interfaces 🖱️</strong>, I aim to craft tech that works — efficiently, ethically, and with practical value.
+        <strong> user interfaces 🖱️</strong>, I aim to craft tech that works — efficiently, ethically, and with practical value.
       </p>
     </section>
   );

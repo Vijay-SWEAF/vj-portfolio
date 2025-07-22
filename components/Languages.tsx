@@ -14,14 +14,14 @@ const languageSkills = [
     flag: '🇫🇷',
     name: 'French',
     level: 30,
-    desc: 'Self-assessed basic proficiency, studied via Duolingo for reading and basic conversation.',
+    desc: 'Learning via Duolingo; improving reading and basic conversation skills (self-assessed beginner).',
     proficiency: 'Basic (A1)',
   },
   {
     flag: '🇩🇪',
     name: 'German',
     level: 30,
-    desc: 'Self-assessed basic proficiency, studied via Duolingo for reading and basic conversation.',
+    desc: 'Learning via Duolingo; improving reading and basic conversation skills (self-assessed beginner).',
     proficiency: 'Basic (A1)',
   },
   {

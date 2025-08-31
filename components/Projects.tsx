@@ -69,9 +69,13 @@ description: 'A time-saving automation tool that generates terminal EDIs, DG Shi
 tools: ['Excel', 'VBA'],
 image: '/assets/projects/opera.jpg'
 
+   },
+  {
+    title: 'SuMo',
+    description: 'A data survey analysis project for EXIM operations at Inland Container Depots (ICDs) — covering missing EDI moves, import detention, POD discrepancies, and more. Centralized cloud storage ensures seamless multi-location access and performance insights.',
+    tools: ['VBA', 'Cloud MSSQL', 'Excel'],
+    image: '/assets/projects/sumo.jpg'
   }
-  
-  
 ];
 
 export default function Projects() {

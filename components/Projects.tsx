@@ -72,7 +72,7 @@ image: '/assets/projects/opera.jpg'
    },
   {
     title: 'SuMo',
-    description: 'A data survey analysis project for EXIM operations at Inland Container Depots (ICDs) — covering missing EDI moves, import detention, POD discrepancies, and more. Centralized cloud storage ensures seamless multi-location access and performance insights.',
+    description: 'A data-driven survey analysis project focused on container operations at Inland Container Depots (ICDs) for EXIM trade. It covers missing EDI moves, import detention, POD discrepancies, and more — with centralized cloud storage enabling multi-location access, performance tracking, and streamlined container survey workflows.',
     tools: ['VBA', 'Cloud MySQL', 'Excel'],
     image: '/assets/projects/sumo.jpg'
   }

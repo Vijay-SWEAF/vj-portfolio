@@ -63,18 +63,26 @@ const projects = [
   tools: ['Excel', 'VBA', 'Vessel Scheduler'],
   image: '/assets/projects/ppg.jpg'
 },
+
 {
-    title: 'OPERA',
+title: 'OPERA',
 description: 'A time-saving automation tool that generates terminal EDIs, DG Shipping and Shipped On Board (SOB) reports instantly with just a few clicks, reducing manual effort and improving accuracy.',
 tools: ['Excel', 'VBA'],
 image: '/assets/projects/opera.jpg'
-
    },
+
   {
     title: 'SuMo',
     description: 'A data-driven survey analysis project focused on container operations at Inland Container Depots (ICDs) for EXIM trade. It covers missing EDI moves, import detention, POD discrepancies, and more — with centralized cloud storage enabling multi-location access, performance tracking, and streamlined container survey workflows.',
     tools: ['VBA', 'Cloud MySQL', 'Excel'],
-    image: '/assets/projects/sumo.jpg'
+    image: '/assets/projects/sumo.png'
+  },
+
+  {
+    title: 'COPS',
+    description: 'Built a multi-module Excel VBA system (Project COPS) managing personnel data, secure item requests (validated via SharePoint), on-hand inventory tracking, and automated re-issue forecasting for security staff, centralizing admin functions and enhancing data integrity.',
+    tools: ['VBA', 'SharePoint', 'Excel'],
+    image: '/assets/projects/cops.jpg'
   }
 ];
 

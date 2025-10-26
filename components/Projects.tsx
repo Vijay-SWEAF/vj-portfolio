@@ -80,7 +80,7 @@ image: '/assets/projects/opera.jpg'
 
   {
     title: 'COPS',
-    description: 'Built a multi-module Excel VBA system (Project COPS) managing personnel data, secure item requests (validated via SharePoint), on-hand inventory tracking, and automated re-issue forecasting for security staff, centralizing admin functions and enhancing data integrity.',
+    description: 'Built a multi-module Excel VBA system (Project COPS) specifically for an airline security department, managing personnel data, secure item requests (validated via SharePoint), on-hand inventory tracking, and automated re-issue forecasting. This centralized admin functions and enhanced data integrity for security staff logistics.',
     tools: ['VBA', 'SharePoint', 'Excel'],
     image: '/assets/projects/cops.jpg'
   }

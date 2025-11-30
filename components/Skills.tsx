@@ -78,8 +78,14 @@ const skillCategories = {
           className="w-8 h-8"
         />
       ),
-      level: 40,
+      level: 50,
       desc: 'Exploring 3D modeling, animations, and transitions using Blender for personal and creative projects.'
+    },
+        {
+      name: 'DaVinci Resolve',
+      icon: <FaFilm className="text-sky-500" />,
+      level: 40,
+      desc: 'Color grading, editing, and advanced visual cleanup using DaVinci Resolve.'
     },
   ],
   Database: [

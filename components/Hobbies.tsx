@@ -7,7 +7,9 @@ import {
   FaHeadphones,
   FaChessKnight,
   FaPlane,
-  FaUsers
+  FaUsers,
+  FaBrain,
+  FaGlobe
 } from 'react-icons/fa';
 
 type Hobby = {
@@ -22,9 +24,11 @@ const HOBBIES: Hobby[] = [
   { icon: <FaHeadphones className="text-3xl" />, label: 'Listening Music' },
   { icon: <FaChessKnight className="text-3xl" />, label: 'Chess' },
   { icon: <FaPlane className="text-3xl" />, label: 'Travel' },
-  {
-    icon: <FaUsers className="text-3xl" />,
-    label: 'Behavioural Intelligence'}
+
+  // ⭐ NEW item with a unique icon
+  { icon: <FaGlobe className="text-3xl" />, label: 'Knowledge Exploration' },
+
+  { icon: <FaUsers className="text-3xl" />, label: 'Behavioural Intelligence' }
 ];
 
 export default function Hobbies() {
@@ -43,7 +47,7 @@ export default function Hobbies() {
         </h2>
 
         {/* One row, equal columns on sm+ screens */}
-        <div className="grid grid-cols-2 sm:grid-cols-7 gap-8 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 justify-items-center">
           {HOBBIES.map((hobby) => (
             <div
               key={hobby.label}

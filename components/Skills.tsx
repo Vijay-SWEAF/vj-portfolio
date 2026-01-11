@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {
   FaPython, FaDatabase, FaReact, FaNodeJs, FaMicrosoft, FaShip, FaFigma,
   FaHtml5, FaCss3Alt, FaCode, FaChalkboardTeacher, FaLaptopCode,
-  FaPaintBrush, FaMobileAlt, FaLightbulb, FaFilm, FaCloud, FaCube
+  FaPaintBrush, FaMobileAlt, FaLightbulb, FaFilm, FaCloud, FaCube, FaJava
 } from "react-icons/fa";
 import {
   SiDotnet, SiAdobephotoshop, SiAdobeillustrator, SiAdobepremierepro,
@@ -21,6 +21,7 @@ const skillCategories = {
   Programming: [
     { name: 'VB / C# / .NET', icon: <FaCode className="text-indigo-600" />, level: 90, desc: 'Built enterprise apps using WinForms and .NET APIs.' },
     { name: 'Python', icon: <FaPython className="text-yellow-500" />, level: 60, desc: 'Automation with Python scripts for personal tools.' },
+    { name: 'Dart', icon: <FaJava className="text-blue-600" />, level: 70, desc: 'Object-oriented programming language for Flutter app development.' },
     { name: 'Node.js', icon: <FaNodeJs className="text-green-500" />, level: 70, desc: 'Basic scripts with Express and MongoDB.' },
     { name: 'Django', icon: <SiDjango className="text-green-900" />, level: 60, desc: 'Full-stack apps with Django admin, models, views.' },
     { name: 'Machine Learning', icon: <FaCloud className="text-gray-500" />, level: 40, desc: (
@@ -38,6 +39,7 @@ const skillCategories = {
     { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" />, level: 90, desc: 'Semantic HTML and responsive design.' },
     { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" />, level: 90, desc: 'Styled layouts with Tailwind, Flexbox, media queries.' },
     { name: 'React / Next.js', icon: <FaReact className="text-cyan-500" />, level: 80, desc: 'Frontend + SSR apps with React and Next.js.' },
+    { name: 'Flutter', icon: <FaMobileAlt className="text-blue-400" />, level: 70, desc: 'Cross-platform mobile apps using Dart and Flutter framework.' },
     { name: 'App Development', icon: <FaMobileAlt className="text-purple-500" />, level: 80, desc: 'Hybrid mobile apps using Bootstrap & Flutter basics.' },
   ],
   Cloud: [

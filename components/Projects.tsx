@@ -4,6 +4,20 @@ import { useState } from 'react';
 const projects = [
 
   {
+    title: 'Life Capsule',
+    description: 'A LIVE Android app published on Google Play Store, built for privacy-first users to capture text, photos, videos, and voice memories with unlock scheduling, smart organization, and encrypted backup support.',
+    tools: ['Android', 'Google Play Store', 'Privacy-First', 'LIVE'],
+    image: '/assets/projects/life-capsule.jpg'
+  },
+
+  {
+    title: 'Proof Note',
+    description: 'A LIVE Android app published on Google Play Store, designed for secure proof capture with photo, video, and voice evidence, user-controlled timestamp integrity, optional geolocation stamping, and structured documentation workflows.',
+    tools: ['Android', 'Google Play Store', 'Privacy-First', 'LIVE'],
+    image: '/assets/projects/proof-note.jpg'
+  },
+
+  {
   title: 'GRAPHICS DESIGN',
   description: 'Creative design concepts explored using Adobe tools — primarily for learning, internal tools, and select freelance requests. These works reflect my interest in visual communication and user-centric design.',
   tools: ['Illustrator', 'Photoshop', 'Adobe Express'],
